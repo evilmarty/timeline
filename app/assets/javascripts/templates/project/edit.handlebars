@@ -1,0 +1,38 @@
+<div class="modal show">
+  <div class="modal-dialog">
+    <form {{action "save" on="submit"}} role="form" class="modal-content">
+      <header class="modal-header">
+        {{#button "cancel" class="close"}}&times;{{/button}}
+        <h4 class="modal-title">Edit project</h4>
+      </header>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="project-name" class="control-label">Name</label>
+          {{input value=name required=true class="form-control" id="project-name"}}
+        </div>
+        <div class="form-group">
+          <label for="project-description">Description</label>
+          {{textarea value=description id="project-description" class="form-control"}}
+        </div>
+
+        <label for="project-tags" class="control-label">Tags</label>
+        {{#each tag in tagList}}
+        <div class="form-group">
+          {{input value=tag.name required=true class="form-control"}}
+        </div>
+        {{/each}}
+
+        <div class="form-group">
+          <label class="control-label">API Token</label>
+          <p class="form-control-static">{{apiToken}}</p>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        {{#button "save" class="btn btn-primary"}}Save{{/button}}
+        {{#button "cancel" class="btn btn-default"}}Cancel{{/button}}
+      </footer>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="modal show">
+  <div class="modal-dialog">
+    <form {{action "createProject" on="submit"}} role="form" class="modal-content">
+      <header class="modal-header">
+        {{#button "cancel" class="close"}}&times;{{/button}}
+        <h4 class="modal-title">New project</h4>
+      </header>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="project_name">Name</label>
+          {{input value=name id="project_name" required=true class="form-control"}}
+        </div>
+        <div class="form-group">
+          <label for="project_description">Description</label>
+          {{textarea value=description id="project_description" class="form-control"}}
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        {{#button type="createProject" class="btn btn-primary"}}Create project{{/button}}
+        {{#button "cancel" class="btn btn-default"}}Cancel{{/button}}
+      </footer>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<form {{action "register" on="submit"}} role="form">
+  <header class="page-header">
+    <h3>Register</h3>
+  </header>
+
+  <div class="form-group">
+    <label for="name" class="control-label">Name</label>
+    {{input value=name required=true class="form-control" id="name"}}
+  </div>
+  <div class="form-group">
+    <label for="email" class="control-label">Email</label>
+    {{input value=email required=true class="form-control" id="email" type="email"}}
+  </div>
+  <div class="form-group">
+    <label for="password" class="control-label">Password</label>
+    {{input value=password required=true class="form-control" id="password" type="password"}}
+  </div>
+  <div class="form-group">
+    <label for="password_confirmation" class="control-label">Confirm password</label>
+    {{input value=passwordConfirmation required=true class="form-control" id="password_confirmation" type="password"}}
+  </div>
+
+  <footer class="modal-footer">
+    {{#button type="submit" class="btn btn-primary"}}Register{{/button}}
+  </footer>
+</form>

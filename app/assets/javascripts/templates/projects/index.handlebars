@@ -1,0 +1,23 @@
+<header class="page-header">
+  <h3 class="clearfix">
+    {{#button "newProject" class="btn btn-default btn-sm pull-right" title="New project"}}
+      <span class="glyphicon glyphicon-plus"></span>
+    {{/button}}
+
+    Projects
+  </h3>
+</header>
+
+<div class="list-group">
+  {{#each project in model}}
+    {{#link-to "project" project class="list-group-item"}}
+      <h4 class="list-group-item-heading">{{project.name}}</h4>
+      <p class="list-group-item-text">Some description here.</p>
+    {{/link-to}}
+  {{else}}
+    <div class="list-group-item">
+      You have no projects available. You should
+      <a {{action "newProject"}} href="#">create one</a>.
+    </div>
+  {{/each}}
+</div>

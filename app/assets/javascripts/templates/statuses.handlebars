@@ -1,0 +1,10 @@
+{{timeline content=filteredContent value=value min=from max=to selected=selectedObject}}
+
+<div class="row">
+  <div class="col-xs-6 text-left text-muted">{{date from "MMMM Do YYYY h:mm A"}}</div>
+  <div class="col-xs-6 text-right text-muted">{{date to "MMMM Do YYYY h:mm A"}}</div>
+</div>
+
+{{render "statuses/new" project controller="newStatus"}}
+
+{{status-list content=filteredContent selected=selectedObject itemClassNames="list-group-item" classNames="list-group"}}

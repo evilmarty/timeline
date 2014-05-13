@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button {{action "toggleNavigation" bubbles=false preventDefault=true}} type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Timeline App</a>
+    </div>
+    <div {{bind-attr class=":collapse :navbar-collapse :navbar-right navigationVisible:in"}} class="collapse navbar-collapse navbar-right">
+      {{#if isLoggedIn}}
+        <ul class="nav navbar-nav hidden-xs">
+          <li {{bind-attr class=":dropdown navigationVisible:open"}} class="dropdown">
+            <a {{action "toggleNavigation" bubbles=false preventDefault=true}} href="#" class="dropdown-toggle">{{model.name}} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                {{#link-to "projects"}}
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                  Projects
+                {{/link-to}}
+              </li>
+              <li class="divider"></li>
+              <li>
+                {{#link-to "settings"}}
+                  <span class="glyphicon glyphicon-cog"></span>
+                  Settings
+                {{/link-to}}
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a {{action "logout" preventDefault=true}} href="#">
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="navbar-text visible-xs">{{model.name}}</p>
+        <ul class="nav navbar-nav visible-xs">
+          <li>
+            {{#link-to "projects"}}
+              <span class="glyphicon glyphicon-list-alt"></span>
+              Projects
+            {{/link-to}}
+          </li>
+          <li class="nav-divider"></li>
+          <li>
+            {{#link-to "settings"}}
+              <span class="glyphicon glyphicon-cog"></span>
+              Settings
+            {{/link-to}}
+          </li>
+          <li class="nav-divider"></li>
+          <li>
+            <a {{action "logout" preventDefault=true}} href="#">
+              <span class="glyphicon glyphicon-log-out"></span>
+              Logout
+            </a>
+          </li>
+        </ul>
+      {{else}}
+        <ul class="nav navbar-nav">
+          <li>
+            {{#link-to "login"}}Login{{/link-to}}
+          </li>
+        </ul>
+      {{/if}}
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  {{outlet}}
+  {{outlet "modals" view="overlay" class="modal-backdrop"}}
+</div>

@@ -1,0 +1,15 @@
+<header class="page-header">
+  <h3 class="clearfix">
+    {{#button "edit" class="btn btn-default btn-sm pull-right" title="Settings"}}
+      <span class="glyphicon glyphicon-cog"></span>
+    {{/button}}
+
+    {{#link-to "projects.index" class="btn btn-link btn-sm"}}
+      <span class="glyphicon glyphicon-chevron-left" title="View all projects"></span>
+    {{/link-to}}
+
+    {{name}}
+  </h3>
+</header>
+
+{{outlet}}

@@ -1,0 +1,35 @@
+<form {{action "create" on="submit"}} role="form" class="well well-sm">
+  {{input value=title id="status_title" class="form-control" placeholder="Lodge new status" on="escape-press" action="reset"}}
+
+  {{#if title}}
+    <div class="form-group"></div>
+
+    <div class="form-group">
+      {{textarea value=description id="status_description" class="form-control input-sm" rows="2" placeholder="Description"}}
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          {{datetime-input value=startAt id="status_start_at" class="form-control"}}
+        </div>
+      </div>
+      {{#if startAt}}
+      <div class="col-sm-6">
+        <div class="form-group">
+          {{datetime-input value=finishAt id="status_finish_at" class="form-control" min=startAt}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="form-group">
+      {{select value=tag content=tagList optionLabelPath="content.name" id="status_tags" class="form-control" prompt="Select a tag..."}}
+    </div>
+
+    <div class="form-group">
+      <button {{action "create"}} class="btn btn-primary">Submit status</button>
+      <button {{action "reset"}} class="btn btn-default">Cancel</button>
+    </div>
+  {{/if}}
+</form>

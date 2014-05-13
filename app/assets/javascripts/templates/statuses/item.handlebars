@@ -1,0 +1,13 @@
+<h4 class="list-group-item-heading">
+  {{title}}
+  {{#if tag}}
+    <span {{bind-attr class=":label tagClassName"}} class="label">{{tag.name}}</span>
+  {{/if}}
+</h4>
+<p class="list-group-item-text">
+  Raised at <em>{{date startAt "h:mm A MMMM Do"}}</em>
+</p>
+
+{{#if view.isSelected}}
+  {{simple-format description}}
+{{/if}}

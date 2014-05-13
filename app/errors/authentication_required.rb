@@ -1,0 +1,1 @@
+class AuthenticationRequired < StandardError; end

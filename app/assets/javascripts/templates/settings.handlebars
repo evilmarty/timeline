@@ -1,0 +1,39 @@
+<form {{action "save" on="submit"}} role="form">
+  <header class="page-header">
+    <h3>Settings</h3>
+  </header>
+
+  <fieldset>
+    <div class="form-group">
+      <label for="name" class="control-label">Name</label>
+      {{input value=name required=true class="form-control" id="name"}}
+    </div>
+    <div class="form-group">
+      <label for="email" class="control-label">Email</label>
+      {{input value=email type="email" required=true class="form-control" id="email"}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <label for="password" class="control-label">Password</label>
+      {{input value=password type="password" class="form-control" id="password"}}
+    </div>
+    <div class="form-group">
+      <label for="password_confirmation" class="control-label">Confirm Password</label>
+      {{input value=passwordConfirmation type="password" class="form-control" id="password_confirmation"}}
+    </div>
+    <div class="form-group">
+      <label class="control-label">Access Token</label>
+      <p class="form-control-static">{{accessToken}}</p>
+    </div>
+    <div class="help-block">
+      Changing your password will also re-generate your access token.
+    </div>
+  </fieldset>
+
+  <footer class="form-group">
+    {{#button "save" class="btn btn-primary"}}Save{{/button}}
+    {{#button "cancel" class="btn btn-default"}}Cancel{{/button}}
+  </footer>
+</form>

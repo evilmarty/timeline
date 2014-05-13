@@ -1,0 +1,3 @@
+== Timeline: The App
+
+An application to log events that can easily be viewed in a timeline built with Ruby on Rails and Ember. Have fun.
